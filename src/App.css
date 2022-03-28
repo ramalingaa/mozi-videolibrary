@@ -1,51 +1,377 @@
-.App {
-  text-align: center;
+/* navbar css starts here */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+.btn {
+  padding: 0.5rem;
+  font-size: 0.8rem;
+}
+.btn-text {
+  color:inherit;
+}
+.i-text {
+  border-radius: 0.31rem;
+  padding: 0.5rem 0 0.5rem 1rem;
+
+}
+.search-wrapper {
+  display: flex;
+}
+.navbar-input-search {
+  min-width: 31rem;
+  padding-left: 3rem;
+}
+.navbar {
+  width: 90%;
+  margin: auto;
+  background-color: transparent;
+  align-items: baseline;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.navbar-logo {
+  display: flex;
+  align-items: baseline;
+  color: var(--primary-color-main);
+  padding: 0 0.5rem 0 0;
+}
+.navbar-search {
+  position: relative;
+  width:8rem;
+}
+.nav-icon-wishlist {
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  color: white;
+  cursor: pointer;
+}
+.navbar-cart {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.search-input {
+  padding: 0.5rem 2rem 0.5rem 3rem;
+  width: 100%;
+}
+.nav-icon {
+  font-size: 1.5rem;
+  padding: 0 0.3rem;
+  cursor: pointer;
+  
+}
+.wish-list {
+  position: relative;
+}
+.cart-icon {
+  position: relative;
+}
+.wish-counter {
+  padding: 0.3rem;
+  font-size: 0.7rem;
+  line-height:0.7rem;
+  background-color: red;
+  color: white;
+  border-radius:50%;
+  position: absolute;
+  top: -13px;
+  right: 0;
+}
+.nav-logo {
+  padding: 0 0.5rem 0 0;
+  font-size: 1.5rem;
+}
+.search-icon {
+  position: absolute;
+  top: 30%;
+  left: 1rem;
+  color: inherit;
+}
+.primary {
+  background-color: var(--primary-color-main);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.page-links {
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
+}
+.footer-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  padding: 0.5rem;
+  background-color:rgb(88, 87, 87);
+  color:#f5f5f5;
+
+}
+.side-navbar-wrapper {
+  display: none;
+}
+@media only screen and (min-width: 470px) {
+  .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+  .nav-icon {
+    display: inline-block;
+  }
+
+  .navbar-logo {
+    font-size: 1.1rem;
+    padding: 0 0.5rem 0 0;
+  }
+  .nav-logo {
+    font-size: 1.6rem;
+  }
+  .navbar-search {
+    width: 10rem;
+  }
+}
+@media only screen and (min-width: 570px) {
+  .btn {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+
+  .navbar-logo {
+    font-size: 1.2rem;
+    padding: 0 0.5rem 0 0;
+  }
+  .nav-logo {
+    font-size: 1.7rem;
+  }
+  .page-links {
+    font-size: 1.2rem;
+  }
+  .navbar-search {
+    width: 15rem;
+  }
+}
+@media only screen and (min-width: 670px) {
+  .btn {
+    padding: 0.5rem 1rem;
+    font-size: 1.1rem;
+  }
+
+  .navbar-logo {
+    font-size: 1.3rem;
+    padding: 0 0.5rem 0 0;
+  }
+}
+@media only screen and (min-width: 850px) {
+  .btn {
+    padding: 0.5rem 1.3rem;
+  }
+  .navbar {
+    width: 85%;
+  }
+  .navbar-search {
+    width: 18rem;
+  }
+  .footer-nav {
+    display: none;
+  }
+  .side-navbar-wrapper {
+    display: flex;
+    gap:1rem;
+    /* position:relative; */
+  }
+  .sidemenu-btn {
+    position :absolute;
+    top:5%;
+    left: 5%;
+  
+  }
+  .side-navbar-content {
+    width: 12rem;
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+    padding:1rem;
+    background-color: white;
+    height:100vh;
+   
+  }
+  .sidebar-icon {
+    padding: 0 0.8rem 0 0;
   }
 }
 
-.App-header {
-  background-color: #22201c;
-  min-height: 100vh;
+@media only screen and (min-width: 1200px) {
+  .navbar {
+    width: 80%;
+  }
+  .navbar-search {
+    display: inline-block;
+  }
+  .side-navbar-content  {
+    width:17rem
+  }
+  .navbar-search {
+    width: 22rem;
+  }
+  .sidemenu-btn {
+    
+    top:6%;
+    left: 7%;
+  }
+}
+/* nav bar css ends here */
+ /* user profile css start here */
+ .profile-card-wrapper {
+  width: 15rem;
+  background-color:white;
+  padding: 1rem;
+  position:fixed;
+  right: 5%;
+  top: 5rem;
+  z-index:1;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: white;
-}
+  gap: 1rem;
+  border: 1px solid var(--div-background-color);
 
-.App-link {
-  color: #61dafb;
 }
-
-.brand-title {
-  font-size: 3rem;
-  color: #d9d9d9;
-}
-
-.brand-title span {
-  color: #ffde59;
-}
-
-.brand-description {
-  font-size: 1.4rem;
-}
-
-.links {
+/* Home css starts here */
+.home-main-wrapper {
+  width: 90%;
+  margin: auto;
   display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  
+ 
 }
-
-.links a {
-  color: #d9d9d9;
+.home-car-card {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border: 1px solid var(--div-background-color);
+  align-items:center;
+  gap: 0.5rem;
+}
+.cat-description {
   font-size: 1.2rem;
-  margin: 1rem;
+  text-transform: capitalize;
 }
+@media only screen and (min-width: 768px) {
+  .home-main-wrapper {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+  }
+  .home-car-card { 
+    width: 48%;
+  }
+  .hero-img  {
+    height:30rem;
+  }
+}
+@media only screen and (min-width: 1120px) {
+  .home-main-wrapper {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .home-car-card { 
+    width: 30%;
+  }
+}
+/* Home css ends here */
+/* Auth page css starts here */
+.login-page-wrapper {
+  display: flex;
+  align-items: center;
+  min-height: 80vh;
+  justify-content:center;
+}
+.login-card-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 90%;
+  padding: 2rem;
+  border: 1px solid var(--div-background-color)
+
+}
+.login-input {
+  width: 100%;
+}
+.login-header {
+  text-align: center;
+
+}
+.login-forgotPassword {
+  color: red;
+}
+.rememberMe-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-self: stretch;
+  padding: 0 0.5rem;
+}
+.remember-checkbox {
+  margin: 0 0.5rem 0 0;
+}
+.create-account {
+  text-decoration: underline;
+}
+.password-wrapper {
+  position: relative;
+}
+.show-password {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color:transparent;
+  border: 0;
+  cursor: pointer;
+}
+.input-label {
+  position: relative;
+}
+.input-name {
+  padding: 1rem;
+}
+.input-placeholder {
+  position: absolute;
+  top:1rem;
+  left:1rem;
+  padding: 0.2rem;
+  transition: 0.2s;
+  background-color:white;
+  transition-timing-function: ease;
+  transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+  pointer-events: none;
+  opacity: 0.5;
+}
+.input-name:focus + .input-placeholder, .input-name:not(:placeholder-shown) + .input-placeholder {
+  opacity: 1;
+  transform: scale(1) translateY(-110%) translateX(0%)
+}
+@media only screen and (min-width: 570px){
+  .login-card-wrapper {
+    width: 70%;
+  }
+}
+@media only screen and (min-width: 740px){
+.login-card-wrapper {
+  width: 50%;
+}
+}
+@media only screen and (min-width: 1050px){
+.login-card-wrapper {
+  width: 40%;
+}
+}
+/* Auth page css ends here */
