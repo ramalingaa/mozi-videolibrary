@@ -4,7 +4,6 @@ import { useVideoContext, useAuthContext } from '../../context/index-context';
 import { UserProfile } from '../index-components';
 
 const Navbar = () => {
-  const [displaySearch, setDisplaySearch] = useState(false)
   const [searchInput, setSearchInput] = useState("")
   const [profileDisplay, setProfileDisplay] = useState(false)
   const { state, dispatch } = useVideoContext()
@@ -13,9 +12,7 @@ const Navbar = () => {
   const { jwtToken } = useAuthContext()
   const navigate = useNavigate()
   
-  const toggleSearch = () => {
-    setDisplaySearch((prev) => !prev)
-  }
+  
   const searchHandler = (e) => {
     if(e.key === "Enter"){
       const searchData = serverData.filter((ele) => ele.title.toLowerCase().includes(e.target.value.toLowerCase()))
@@ -38,9 +35,8 @@ const Navbar = () => {
        </Link>
        
         <div className ="navbar-search">
-        <i className={  displaySearch ? "far fa-search search-icon" :"far fa-search"} onClick = {toggleSearch}></i>
-            {displaySearch && <input type = "text" className = "i-text search-input" onKeyPress = {searchHandler} onChange = {updateSearchInput}/> }
-            
+        <i className="far fa-search search-icon"></i>
+            <input type = "text" className = "i-text search-input" onKeyPress = {searchHandler} onChange = {updateSearchInput}/>  
         </div>
         {jwtToken ? <button onClick = {toggleProfileCard}><i className="far fa-user nav-icon"></i></button> : 
         <Link to = "/Login" className="navbar-cart">
