@@ -1,6 +1,7 @@
 .App {
-  background-color: #02121b;
-  color: white;
+  --app-background-color:#02121b;
+  background-color: var(--app-background-color);
+  color: var(--white-color);
 }
 /* navbar css starts here */
 a {
@@ -50,7 +51,7 @@ a {
 .nav-icon-wishlist {
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
-  color: white;
+  color: var(--white-color);
   cursor: pointer;
 }
 .navbar-cart {
@@ -78,8 +79,8 @@ a {
   padding: 0.3rem;
   font-size: 0.7rem;
   line-height:0.7rem;
-  background-color: red;
-  color: white;
+  background-color: var(--primary-color-main);
+  color: var(--white-color);
   border-radius:50%;
   position: absolute;
   top: -13px;
@@ -112,7 +113,8 @@ a {
   display: flex;
   justify-content: space-around;
   padding: 0.5rem;
-  color:#f5f5f5;
+  color:var(--white-color);
+  background-color: var(--app-background-color);
   border: 1px solid var(--div-background-color);
 
 }
@@ -200,7 +202,7 @@ a {
     gap:2rem;
     padding:1rem 2rem;
     height:100vh;
-    border: 1px solid var(--div-background-color);
+    border-right: 3px solid #e8ebec;
    
   }
   .sidebar-icon {
@@ -231,7 +233,7 @@ a {
  /* user profile css start here */
  .profile-card-wrapper {
   width: 15rem;
-  background-color:#02121b;
+  background-color:var(--app-background-color);
   padding: 1rem;
   position:absolute;
   right: 0%;
@@ -317,7 +319,7 @@ a {
 
 }
 .login-forgotPassword {
-  color: red;
+  color: var(--primary-color-main);
 }
 .rememberMe-wrapper {
   display: flex;
@@ -381,3 +383,174 @@ a {
 }
 }
 /* Auth page css ends here */
+/* video listing page css starts here */
+.video-listing-wrapper {
+  width: 80%;
+  margin: auto;
+ display:flex;
+ flex-direction: column;
+ gap: 1rem;
+}
+.video-page-wrapper {
+  display: flex;
+  gap: 1rem;
+  height: 100vh;
+}
+.video-card-wrapper {
+  width: 100%;
+  text-align: center;
+  /* border: 1px solid var(--div-background-color); */
+ position: relative;
+}
+.watch-later-icon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size:1.5rem;
+}
+.selected {
+  color: var(--primary-color-main);
+}
+.like-watchlater-wrapper {
+  display: flex;
+  justify-content:space-between;
+}
+.btn-text:hover {
+  background-color:transparent
+}
+
+.skelton-img {
+  /* opacity: 0.7; */
+  animation: skelton-loading 1s linear infinite alternate;
+}
+
+@keyframes skelton-loading {
+  0% {
+    background-color: hsl(200, 20%, 70%);
+  }
+  100% {
+   background-color: hsl(200, 20%, 95%);
+ }
+}
+
+@media screen and (min-width: 768px) {
+ .video-listing-wrapper {
+   width: 90%;
+   margin:  0 auto;
+   display:flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: center;
+   overflow-y: scroll;
+
+ }
+ .video-listing-wrapper::-webkit-scrollbar{
+   display: none;
+ }
+ .video-card-wrapper {
+   width: 45%; 
+ }
+  
+}
+@media screen and (min-width: 978px) {
+ .video-listing-wrapper {
+   width: 90%;
+   margin:  0 auto;
+   display:flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+  justify-content: flex-start;
+  padding: 0 0 5rem 0;
+
+ }.video-card-wrapper {
+   width: 32%;
+   
+ }
+  
+}
+/* Video listing page css ends here */
+/* Single page css starts here */
+.single-video-wrapper {
+  display:flex;
+  flex-direction: column;
+  gap:1rem;
+  width: 99%;
+  margin: auto;
+}
+.snackbar {
+  position:fixed;
+  bottom: 5%;
+  left:0;
+}
+.save-to-card {
+  background-color: white;
+  position: fixed;
+  width: 10rem;
+  min-height:10rem ;
+  top: 40%;
+  left: 40%;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap:1rem;
+  z-index: 1;
+  border: 1px solid var(--div-background-color);
+
+}
+.playlist-save-btn {
+  color: var(--black-color);
+}
+.save-to-item {
+  display: flex;
+  gap:0.3rem;
+  padding:0.5rem 0;
+  border-bottom: 1px solid grey;
+  color: var(--black-color);
+}
+.related-title {
+  border-bottom: 1px solid grey;
+  padding: 0 0 1rem 0;
+}
+.related-videos {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.single-video-card {
+  width: 100%;
+  padding: 0.3rem;
+}
+.video-action-wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+  border-bottom: 1px solid grey;
+  align-items: baseline;
+}
+.outlined {
+  border: 1px solid #333;
+}
+.description-btn {
+  margin:1rem 0;
+}
+@media screen and (min-width: 768px){
+  .single-video-wrapper {
+    flex-direction: row;
+  }
+  .playsection-wrapper {
+    width: 70%;
+    padding:1rem;
+  }
+  .relative-section-wrapper {
+    width: 30%;
+  }
+  .singlepage-sidebar {
+    width: 2rem;
+    padding: 8rem 0 0 0;
+    position: fixed;
+    top: 0;
+    border: 0;
+  }
+}
+/* single page css ends here */

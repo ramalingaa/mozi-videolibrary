@@ -58,7 +58,7 @@ const Login = () => {
             localStorage.setItem("USER_PROFILE",JSON.stringify(response.data.foundUser))
             setJwtToken(() =>response.data.encodedToken)
             setUserProfileData(() =>response.data.foundUser )
-            navigate("/products")
+            navigate("/videos")
 
         }catch(e) {
             console.log(e)

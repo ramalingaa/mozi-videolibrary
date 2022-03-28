@@ -9,7 +9,7 @@ const useVideoContext = () => useContext(VideoContext)
 
 const VideoProvider = ({children}) => { 
     
-    const [state, dispatch] = useReducer(videoReducer,{videoData:[], serverData:[], historyData:[], likedData:[], playListData:[], singlePlaylistData:[], singleVideoData:{}})
+    const [state, dispatch] = useReducer(videoReducer,{videoData:[], serverData:[], historyData:[], likedData:[], playListData:[], singlePlaylistData:[], singleVideoData:{}, watchLaterData:[]})
     const { jwtToken } = useAuthContext()
 
     useEffect(() => { 
@@ -23,7 +23,6 @@ const VideoProvider = ({children}) => {
             }
         })()
     },[])
-
     useEffect(() =>{
         (async () => {
             try{
@@ -51,6 +50,16 @@ const VideoProvider = ({children}) => {
             try {
                 const response = await axios.get("/api/user/playlists",{headers:{authorization:jwtToken}})
                 dispatch({type:"SET_PLAYLIST_DATA",payload: response.data.playlists})
+            }catch(e) {
+                console.log(e)
+            }
+        })()
+    },[])
+    useEffect(() =>{
+        (async () => {
+            try{
+                const response = axios.get("/api/user/watchLater",{headers:{authorization:jwtToken}})
+                dispatch({type:"SET_WATCHLATER_DATA", payload: response.data.watchLater})
             }catch(e) {
                 console.log(e)
             }
