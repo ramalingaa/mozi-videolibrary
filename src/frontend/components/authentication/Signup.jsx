@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axios from "axios"
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 
 
@@ -8,6 +8,8 @@ const Signup = () => {
 
     const [showPassword, setShowPassword] = useState({password:false, reEnterPassword:false})
     const [isPasswordMatch, setISPasswordMatch] = useState(true)
+    const [error, setError] = useState({emailExist:false,blankError: false, otherError:false})
+
     const [newUserData, setNewUserData] = useState({email:"", password:"",name:""})
     const navigate  = useNavigate()
 
@@ -25,13 +27,23 @@ const Signup = () => {
         newUserData.password === e.target.value ? setISPasswordMatch(() => true) : setISPasswordMatch(() => false)
     }
     const signupUser = async () => {
-        try {
-            const response = await axios.post("/api/auth/signup",newUserData)
-          
-            localStorage.setItem("JWT_TOKEN_MOZI",response.data.encodedToken)
-            navigate("/login")
-        }catch (e){
-            console.log("signup failed",e)
+        if(newUserData.email && newUserData.password && newUserData.name){
+            try {
+                const response = await axios.post("/api/auth/signup",newUserData)
+                if(response.status === 201){
+                    navigate("/login")
+                }
+                
+            }catch (e){
+                if(e?.response){
+                    e.response.status === 422 && setError((prev) => ({emailExist:true,blankError: false, otherError:false}))
+                    e.response.status === 500 && setError((prev) => ({emailExist:false,blankError: false, otherError:true}))
+                }
+                
+            }
+        }
+        else {
+            setError((prev) => ({emailExist:false,blankError: true, otherError:false}))
         }
     }
     
@@ -58,11 +70,13 @@ const Signup = () => {
                 <input type = {showPassword.reEnterPassword ? "text" : "password"} placeholder = " " className = "i-text input-name login-input" onChange = {checkPassword}/>
                 <span  className = "input-placeholder">Confirm Password</span>
                 <button className = "show-password" onClick = {toggleReDisplayPassword}>{showPassword.reEnterPassword ? <i className="fas fa-eye "></i> : <i className="fas fa-eye-slash"></i>}</button>
-                {!isPasswordMatch && <p>Passwords don't match</p>}
+                {!isPasswordMatch && <p className = "login-forgotPassword">Passwords don't match</p>}
             </label>
-           
+            {error.emailExist && <p className = "login-forgotPassword">The email you entered is already Exists.</p>}
+            {error.otherError && <p className = "login-forgotPassword">Something went wrong.</p>}
+            {error.blankError && <p className = "login-forgotPassword">Please fill in required details.</p>}
             <button className = "btn primary" onClick = {signupUser}>Signup</button>
-            <p className = "login-header create-account">Already Have an Account? Login</p>
+            <Link to = "/login" className = "login-header create-account">Already Have an Account? Login</Link>
         </div>
     </div>
   )
