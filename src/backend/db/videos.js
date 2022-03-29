@@ -7,7 +7,7 @@
 
  export const videos = [
   {
-    _id: uuid(),
+    _id: "5fa918f7-9bd8-4f92-af95-cab81b171d73",
     title: "Its Not Just a Star ",
     description:
       "The James Webb Space Telescope (Webb) has recently captured its most detailed image yet, less than three months after its launch in late December. NASA has confirmed that they have reached a new milestone in their efforts to set up the state-of-the-art telescope's optical system as it prepares for its first scientific observations in the summer. The new image shows a single, bright star against a backdrop of other, dimmer stars and galaxies in the far distance.",
@@ -16,7 +16,7 @@
     thumbnail:"https://res.cloudinary.com/ramlinga/image/upload/v1647841199/Video-library/maxresdefault_n3cjhc.jpg"
   },
   {
-    _id: uuid(),
+    _id: "65eacb68-b89e-4299-898f-ed93619e11d8",
     title: "The_Planets_Beyond_Neptune",
     creator: "Sentdex",
     description:
@@ -25,7 +25,7 @@
       thumbnail:"https://res.cloudinary.com/ramlinga/image/upload/v1647843742/Video-library/maxresdefault_nyijk3.jpg"
     },
   {
-    _id: uuid(),
+    _id: "70eabc95-abc3-4153-b9c8-6e83033ceab6",
     title: "Whats Inside the Voyager Spacecraft Time Capsules",
     creator: "Sentdex",
     description:
@@ -34,7 +34,7 @@
       thumbnail:"https://res.cloudinary.com/ramlinga/image/upload/v1647843614/Video-library/maxresdefault_tj78rx.jpg"
     },
   {
-    _id: uuid(),
+    _id: "c8b0020c-6ab1-4865-96b0-e098fcbdaeb0",
     title: "Journey to the Center of the Milky Way Galaxy",
     creator: "Sentdex",
     description:
@@ -43,7 +43,7 @@
       thumbnail:"https://res.cloudinary.com/ramlinga/image/upload/v1647843504/Video-library/maxresdefault_lsvcdb.jpg"
     },
     {
-      _id: uuid(),
+      _id: "912abedf-1e6d-48f8-a684-f018b3d8d780",
       title: "Its Not Just a Star ",
       description:
         "The James Webb Space Telescope (Webb) has recently captured its most detailed image yet, less than three months after its launch in late December. NASA has confirmed that they have reached a new milestone in their efforts to set up the state-of-the-art telescope's optical system as it prepares for its first scientific observations in the summer. The new image shows a single, bright star against a backdrop of other, dimmer stars and galaxies in the far distance.",
@@ -52,7 +52,7 @@
       thumbnail:"https://res.cloudinary.com/ramlinga/image/upload/v1647841199/Video-library/maxresdefault_n3cjhc.jpg"
     },
     {
-      _id: uuid(),
+      _id: "3385b9cd-90e3-4914-8a93-f3f19177cd6f",
       title: "The_Planets_Beyond_Neptune",
       creator: "Sentdex",
       description:
@@ -61,7 +61,7 @@
         thumbnail:"https://res.cloudinary.com/ramlinga/image/upload/v1647843742/Video-library/maxresdefault_nyijk3.jpg"
       },
     {
-      _id: uuid(),
+      _id: "cb556bdd-976c-4fd6-a0bf-0a265260f8cf",
       title: "Whats Inside the Voyager Spacecraft Time Capsules",
       creator: "Sentdex",
       description:
@@ -70,7 +70,7 @@
         thumbnail:"https://res.cloudinary.com/ramlinga/image/upload/v1647843614/Video-library/maxresdefault_tj78rx.jpg"
       },
     {
-      _id: uuid(),
+      _id: "c0465e16-80cb-4327-9a40-086bc53a5fd0",
       title: "Journey to the Center of the Milky Way Galaxy",
       creator: "Sentdex",
       description:

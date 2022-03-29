@@ -18,7 +18,7 @@ const UserProfile = ({setProfileDisplay}) => {
         <p>Hello <strong>{userProfileData.firstName}</strong></p>
         <p >Our Policies</p>
         <p>Contact Us</p>
-        <button className="btn btn-text" onClick = {logoutUser}>Logout</button>
+        <button className="btn outlined" onClick = {logoutUser}>Logout</button>
         
     </div>
   )
