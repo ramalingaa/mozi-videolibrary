@@ -3,21 +3,9 @@ import { createContext, useContext, useState } from "react";
 const AuthContext = createContext()
 const useAuthContext = () => useContext(AuthContext)
 const AuthProvider = ({children}) => {
-    const token = localStorage.getItem("JWT_TOKEN_MOZI")
-    const userData = localStorage.getItem("USER_PROFILE_MOZI")
-    const [ userProfileData, setUserProfileData] = useState(() =>{
-        if(userData){
-            return (userData);
-        }else {
-            return {}
-        }
-    })
-    const [jwtToken, setJwtToken] = useState(() => {
-        if(token){
-            return token 
-        }
-        return ""
-    })
+    const token = JSON.parse(localStorage.getItem("mozi"))
+    const [ userProfileData, setUserProfileData] = useState(token?.USER_PROFILE_MOZI)
+    const [jwtToken, setJwtToken] = useState(token?.JWT_TOKEN_MOZI)
     const [playlistId, setPlaylistId] = useState("")
 
     return (

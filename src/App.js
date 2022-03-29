@@ -1,5 +1,5 @@
 import "./App.css";
-import { Navbar, Home, Login, Signup, ForgotPassword, FooterNavbar, VideoListing, SingleVideo, PlayList, SinglePlaylistVideoCard, LikedVideo } from "./frontend/components/index-components";
+import { Navbar, Home, Login, Signup, ForgotPassword, FooterNavbar, VideoListing, SingleVideo, PlayList, SinglePlaylistVideoCard, LikedVideo, History, WatchLater } from "./frontend/components/index-components";
 import { Routes , Route} from "react-router-dom"
 import { useAuthContext } from "./frontend/context/index-context"
 function App() {
@@ -17,6 +17,9 @@ function App() {
           <Route path = "/Playlist" element = {jwtToken ? <PlayList /> : <Login />} />
           <Route path = "/SinglePlaylist" element = {jwtToken ? <SinglePlaylistVideoCard /> : <Login />} />
           <Route path = "/LikedVideo" element = {jwtToken ? <LikedVideo /> : <Login />} />
+          <Route path = "/History" element = {jwtToken ? <History /> : <Login />} />
+          <Route path = "/WatchLater" element = {jwtToken ? <WatchLater /> : <Login />} />
+
 
       </Routes>
       <FooterNavbar/>

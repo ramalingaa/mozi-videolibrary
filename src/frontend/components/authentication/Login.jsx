@@ -20,8 +20,7 @@ const Login = () => {
             
                 const response = await axios.post("/api/auth/login",userData)
                 if(response.status === 200){
-                    localStorage.setItem("JWT_TOKEN_MOZI",response.data.encodedToken)
-                    localStorage.setItem("USER_PROFILE_MOZI",JSON.stringify(response.data.foundUser))
+                    localStorage.setItem("mozi",JSON.stringify({"JWT_TOKEN_MOZI":response.data.encodedToken, "USER_PROFILE_MOZI":response.data.foundUser.firstName}))
                     setJwtToken(() =>response.data.encodedToken)
                     setUserProfileData(() =>response.data.foundUser )
                     navigate("/")
@@ -54,8 +53,7 @@ const Login = () => {
         try {
             const guestData = {email:"ramalinga.kalagotla@gmail.com", password:"123456"}
             const response = await axios.post("/api/auth/login",guestData)
-            localStorage.setItem("JWT_TOKEN_MOZI",response.data.encodedToken)
-            localStorage.setItem("USER_PROFILE_MOZI",JSON.stringify(response.data.foundUser))
+            localStorage.setItem("mozi",JSON.stringify({"JWT_TOKEN_MOZI":response.data.encodedToken, "USER_PROFILE_MOZI":response.data.foundUser.firstName}))
             setJwtToken(() =>response.data.encodedToken)
             setUserProfileData(() =>response.data.foundUser )
             navigate("/videos")
