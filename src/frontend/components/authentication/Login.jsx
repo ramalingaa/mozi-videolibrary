@@ -54,8 +54,8 @@ const Login = () => {
         try {
             const guestData = {email:"ramalinga.kalagotla@gmail.com", password:"123456"}
             const response = await axios.post("/api/auth/login",guestData)
-            localStorage.setItem("JWT_TOKEN",response.data.encodedToken)
-            localStorage.setItem("USER_PROFILE",JSON.stringify(response.data.foundUser))
+            localStorage.setItem("JWT_TOKEN_MOZI",response.data.encodedToken)
+            localStorage.setItem("USER_PROFILE_MOZI",JSON.stringify(response.data.foundUser))
             setJwtToken(() =>response.data.encodedToken)
             setUserProfileData(() =>response.data.foundUser )
             navigate("/videos")

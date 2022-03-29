@@ -554,3 +554,84 @@ a {
   }
 }
 /* single page css ends here */
+/* play list css starts here */
+.playlist-card-wrapper {
+  border: 1px solid var(--div-background-color);
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+.playlist-main-wrapper {
+  width: 90%;
+  margin:auto;
+  display:flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.playlist-icon {
+  padding:0 0.3rem 0 0;
+}
+.myplaylist-create-wrapper {
+  display:flex;
+  justify-content: space-between;
+}
+.playlist-card-header {
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+}
+.playlist-cards-wrapper {
+  display:flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.open-playlistBtn {
+  align-self: center;
+}
+.single-play-card {
+  width: 90%;
+  margin: auto;
+  display:flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.title-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0 0.5rem;
+}
+.empty-single-playlist {
+  height:80vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:center;
+  gap: 1rem;
+  
+}
+@media only screen and (min-width: 768px) {
+  .playlist-main-wrapperW-sidebar {
+    display: flex;
+
+  }
+  .playlist-main-wrapper {
+    width: 70%;
+    margin: 0 auto;
+  }
+  .single-play-card {
+    flex-direction:row;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    height:max-content
+  }
+  .playlist-video-card {
+    width: 30%;
+  }
+  .single-card-wrapper {
+    display: flex;
+    gap: 1rem;
+  }
+}

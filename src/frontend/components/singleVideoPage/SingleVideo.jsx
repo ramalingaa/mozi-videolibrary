@@ -42,10 +42,11 @@ const SingleVideo = () => {
         }
         
     },[singleVideoData._id])
+
     useEffect(() => {
         const relatedVideoData = videoData.filter((ele) => ele._id !== singleVideoData._id )
         setRelatedVideo(() => relatedVideoData )
-    },[singleVideoData.title])
+    },[singleVideoData._id])
 
     //Add default playlist Watch later if nothing added to playlist
     useEffect(() => {
@@ -83,7 +84,7 @@ const SingleVideo = () => {
         })()
         }
         
-    },[singleVideoData.title])
+    },[singleVideoData._id])
 
     const addToPlaylist = () => {
         if(jwtToken){
