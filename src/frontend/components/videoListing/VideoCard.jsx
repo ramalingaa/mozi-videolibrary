@@ -43,7 +43,7 @@ const VideoCard = ({vInfo}) => {
             <button className = {`btn btn-text video-listing-btn ${isLiked ? "selected" :""}`} onClick = {updateLikedVideos}><i className="fas fa-thumbs-up"></i> Like</button>
             <button onClick = {toggleWatchLater} className = {`btn btn-text video-listing-btn ${isWatchLaterAdded ? "selected" :""}`}><i className="fas fa-clock"></i> Watch Later</button>
         </div>
-        <p>{vInfo.title}by {vInfo.creator}</p>
+        <p>{vInfo.title}</p>
     </div>
   )
 }
