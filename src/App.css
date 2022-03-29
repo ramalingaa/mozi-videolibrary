@@ -652,20 +652,8 @@ a {
   cursor: pointer;
 }
 @media screen and (min-width: 768px) {
-  /* .history-card-wrapper {
-    position: relative;
+ 
+  .history-video-card {
+    margin: 0;
   }
-  .clear-history {
-    position: absolute;
-    top: -2rem;
-    left: 4.5%;
-    border: 0;
-    background-color:transparent;
-    
-    text-decoration: underline;
-    padding: 0.5rem;
-  } */
-.history-video-card {
-  margin: 0;
-}
 }
