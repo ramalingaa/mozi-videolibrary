@@ -24,6 +24,9 @@ const videoReducer = (state, action) => {
         case "SET_WATCHLATER_DATA": {
             return { ...state, watchLaterData: action.payload}
         }
+        case "SET_NOTES_DATA": {
+            return { ...state, notesData: action.payload}
+        }
         default: {
             return state
         }

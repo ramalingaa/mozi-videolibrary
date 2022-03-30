@@ -10,6 +10,7 @@ import VideoCard from "./videoListing/VideoCard"
 import VideoListing from "./videoListing/VideoListing"
 import SaveToPlaylistCard from "./singleVideoPage/SaveToPlaylistCard"
 import SingleVideo from  "./singleVideoPage/SingleVideo"
+import NotesCard from "./singleVideoPage/NotesCard"
 import RelatedCard from "./relatedvideos/RelatedCard"
 import RelatedVideo from "./relatedvideos/RelatedVideo"
 import PlaylistRemoveToast from './toast/PlaylistRemoveToast';
@@ -24,4 +25,5 @@ import History from "./history/History"
 import HistoryCard from "./history/HistoryCard"
 import WatchLater from "./watchlater/WatchLater"
 import WatchLaterVideoCard from "./watchlater/WatchLaterVideoCard"
-export { ForgotPassword, Login, Signup, Home, FooterNavbar, Navbar, SideMenuGuide, UserProfile, VideoCard, VideoListing, SaveToPlaylistCard, SingleVideo, RelatedCard, RelatedVideo, PlaylistRemoveToast, PlaylistToast, PlayList, PlaylistCard, PlaylistVideoCard, SinglePlaylistVideoCard, LikedVideo, LikedVideoCard, History, HistoryCard, WatchLater, WatchLaterVideoCard}
+
+export { ForgotPassword, Login, Signup, Home, FooterNavbar, Navbar, SideMenuGuide, UserProfile, VideoCard, VideoListing, SaveToPlaylistCard, SingleVideo, NotesCard, RelatedCard, RelatedVideo, PlaylistRemoveToast, PlaylistToast, PlayList, PlaylistCard, PlaylistVideoCard, SinglePlaylistVideoCard, LikedVideo, LikedVideoCard, History, HistoryCard, WatchLater, WatchLaterVideoCard}
