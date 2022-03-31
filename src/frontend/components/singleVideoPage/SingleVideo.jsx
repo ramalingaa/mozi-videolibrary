@@ -171,7 +171,7 @@ console.log(serverNotes)
          <RelatedVideo relatedVideo = {relatedVideo}/>
         </div>
         
-        {toastDisplay && <PlaylistToast />}
+        {toastDisplay && <PlaylistToast text = "added to playlist"/>}
     </div>
   )
 }

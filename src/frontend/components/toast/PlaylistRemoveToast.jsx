@@ -1,9 +1,9 @@
 import React from 'react'
 
-const PlaylistRemoveToast = () => {
+const PlaylistRemoveToast = ({text}) => {
   return (
     <div>
-        <p class="snackbar">Video removed from playlist</p>  
+        <p className = {`snackbar cart-toast ${text === "added to" ? "toast-added" :"toast-removed"}`}>Product {text}</p>
     </div>
   )
 }

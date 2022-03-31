@@ -676,3 +676,19 @@ a {
     margin: 0;
   }
 }
+
+/* toast css starts here */
+.cart-toast {
+  width: 30%;
+  position: fixed;
+  bottom: 3%;
+  left: 2%;
+  transform: ease-in-out;
+  border-radius: 0.5rem;
+}
+.toast-added {
+  background-color: var(--alert-success);
+}
+.toast-removed {
+  background-color: var(--alert-warning);
+}
