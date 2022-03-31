@@ -9,7 +9,7 @@ import { updateWatchLaterFunction } from '../utility-functions/updateWatchLaterF
 const SingleVideo = () => {
     console.log("single video running")
     const [descriptionToggle, setDescriptionToggle] = useState(false)
-    const [ displaySaveToPlayList, setDisplaySaveToPlayList] = useState(false)
+    const [ displaySaveToPlayList, setDisplaySaveToPlayList] = useState(() => false)
     const [relatedVideo, setRelatedVideo] = useState([])
     const [isLiked, setIsLiked] = useState(false)
     const [isWatchLaterAdded, setIsWatchLaterAdded] = useState(false)
@@ -112,7 +112,7 @@ const SingleVideo = () => {
     useEffect(() =>{
         let toastIntervalId
         if(toastDisplay){
-             toastIntervalId = setTimeout(() =>setToastDisplay(false),3000)
+             toastIntervalId = setTimeout(() =>setToastDisplay(false),1500)
         } 
 
         return () => clearInterval(toastIntervalId)
@@ -155,7 +155,7 @@ console.log(serverNotes)
                     return <SaveToPlaylistCard plName = {ele} vInfo = {singleVideoData} setToastDisplay = {setToastDisplay}/>
                 })}
             </div>
-            <button onClick = {closeSaveDialog} className = "btn  playlist-save-btn">Save</button>
+            <button onClick = {closeSaveDialog} className = "btn  playlist-save-btn">Close</button>
                 </div>}
                 {
                 notesDisplay && 

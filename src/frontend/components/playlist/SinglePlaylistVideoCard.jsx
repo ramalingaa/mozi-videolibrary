@@ -12,7 +12,7 @@ const SinglePlaylistVideoCard = () => {
   useEffect(() =>{
     let toastIntervalId
     if(toastDisplay){
-         toastIntervalId = setTimeout(() =>setToastDisplay(false),3000)
+         toastIntervalId = setTimeout(() =>setToastDisplay(false),1500)
     } 
 
     return () => clearInterval(toastIntervalId)
