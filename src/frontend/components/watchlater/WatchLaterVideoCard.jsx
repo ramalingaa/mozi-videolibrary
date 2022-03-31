@@ -4,7 +4,7 @@ import { useVideoContext, useAuthContext} from '../../context/index-context'
 import  axios  from 'axios';
 
 
-const WatchLaterVideoCard = ({vInfo}) => {
+const WatchLaterVideoCard = ({vInfo, setToastDisplay}) => {
   const { dispatch } = useVideoContext()
   const { jwtToken } = useAuthContext()
 
@@ -14,6 +14,7 @@ const WatchLaterVideoCard = ({vInfo}) => {
         try {
             const response = await axios.delete(`/api/user/watchLater/${vInfo._id}`, {headers:{authorization:jwtToken}})
             dispatch({type:"SET_WATCHLATER_DATA", payload:response.data.watchLater})
+            setToastDisplay((prev) => !prev)
         }
         catch(e) {
             console.log(e)

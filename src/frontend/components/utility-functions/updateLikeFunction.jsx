@@ -8,7 +8,6 @@ export function updateLikeFunction(jwtToken, isLiked, vInfo, dispatch, setIsLike
                     try {
                         const response = await axios.post("/api/user/likes", { video: vInfo }, { headers: { authorization: jwtToken } });
                         dispatch({type:"SET_LIKED_DATA", payload:response.data.likes})
-
                         setIsLiked((prev) => !prev);
                     } catch (e) {
                         console.log(e);

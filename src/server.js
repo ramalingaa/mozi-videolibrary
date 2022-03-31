@@ -38,6 +38,7 @@ import {
   addVideoToPlaylistHandler,
   removeVideoFromPlaylistHandler,
 } from "./backend/controllers/PlaylistController";
+import { getNoteItemsHandler, addItemToNotesHandler, removeItemFromNotesHandler, updateNotesItemHandler} from "./backend/controllers/NotesController";
 import { users } from "./backend/db/users";
 export function makeServer({ environment = "development" } = {}) {
   return new Server({
@@ -54,6 +55,7 @@ export function makeServer({ environment = "development" } = {}) {
       history: Model,
       playlist: Model,
       watchLater: Model,
+      notes: Model,
     },
 
     // Runs on the start of the server
@@ -70,6 +72,7 @@ export function makeServer({ environment = "development" } = {}) {
           history: [],
           playlists: [],
           watchLater: [],
+          notes: [],
         })
       );
     },
@@ -133,6 +136,13 @@ export function makeServer({ environment = "development" } = {}) {
         removeVideoFromWatchLaterHandler.bind(this)
       );
       this.delete("/user/watchLater/all", clearWatchLaterHandler.bind(this));
+
+      //notes routes(private)
+      this.get("/user/notes", getNoteItemsHandler.bind(this));
+      this.post("/user/notes", addItemToNotesHandler.bind(this));
+      this.post("/user/notes/:videoId", updateNotesItemHandler.bind(this));
+      this.delete("/user/notes/:videoId", removeItemFromNotesHandler.bind(this));
+
     },
   });
 }

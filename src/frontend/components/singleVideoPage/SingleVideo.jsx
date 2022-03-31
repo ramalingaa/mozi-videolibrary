@@ -2,36 +2,43 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useNavigate, useParams  } from 'react-router-dom'
 import {  useVideoContext, useAuthContext} from '../../context/index-context'
-import { RelatedVideo, SaveToPlaylistCard, PlaylistToast, SideMenuGuide } from '../index-components'
+import { RelatedVideo, SaveToPlaylistCard, PlaylistToast, SideMenuGuide, NotesCard} from '../index-components'
 import { updateLikeFunction } from '../utility-functions/updateLikeFunction';
 import { updateWatchLaterFunction } from '../utility-functions/updateWatchLaterFunction'
 
 const SingleVideo = () => {
     const [descriptionToggle, setDescriptionToggle] = useState(false)
-    const [ displaySaveToPlayList, setDisplaySaveToPlayList] = useState(false)
+    const [ displaySaveToPlayList, setDisplaySaveToPlayList] = useState(() => false)
     const [relatedVideo, setRelatedVideo] = useState([])
     const [isLiked, setIsLiked] = useState(false)
     const [isWatchLaterAdded, setIsWatchLaterAdded] = useState(false)
     const [singlePage, setSinglePage] = useState(true)
+    const [notesDisplay, setNotesDisplay] = useState(false)
+    const [serverNotes, setServerNotes] = useState({notes:""})
     const param = useParams()
     
     const [toastDisplay, setToastDisplay] = useState(false)
     const navigate = useNavigate()
     const { jwtToken } = useAuthContext()
     const { state, dispatch } = useVideoContext()
-    const { historyData, videoData, likedData, playListData, watchLaterData} = state
+    const { historyData, videoData, likedData, playListData, watchLaterData, notesData} = state
     const singleVideoData = videoData.find((ele) => ele._id === param.videoId)
 
     const toggleDescription  = () => {
         setDescriptionToggle((prev) => !prev)
     }
+    const toggleNotes = () => {
+        jwtToken ? setNotesDisplay((prev) => !prev) : navigate("/login")
+    }
     useEffect(() => {
         const isItLiked = likedData.find((ele) => ele._id === singleVideoData._id)
+        setNotesDisplay(() => false)
         if(isItLiked){
             setIsLiked(true)
         } else {
             setIsLiked(false)
         }
+
     },[singleVideoData._id])
     useEffect(() => {
         const isWatchLater = watchLaterData.find((ele) => ele._id === singleVideoData._id)
@@ -104,11 +111,20 @@ const SingleVideo = () => {
     useEffect(() =>{
         let toastIntervalId
         if(toastDisplay){
-             toastIntervalId = setTimeout(() =>setToastDisplay(false),3000)
+             toastIntervalId = setTimeout(() =>setToastDisplay(false),1500)
         } 
 
         return () => clearInterval(toastIntervalId)
     },[toastDisplay])
+    useEffect(() => {
+        const videoNotes = notesData.find((ele) => ele._id === singleVideoData._id)
+        if(videoNotes){
+          setServerNotes(() => videoNotes)
+        }else {
+          setServerNotes(() => ({}))
+        }
+        
+      },[notesData, singleVideoData._id])
 
   return (
     <div className = "single-video-wrapper">
@@ -126,6 +142,7 @@ const SingleVideo = () => {
                     <button className = {`btn btn-text ${isLiked ? "selected" :""}`} onClick = {updateLikedVideos}><i className="fas fa-thumbs-up"></i> Like</button>
                     <button className = {`btn btn-text ${isWatchLaterAdded ? "selected" :""}`} onClick = {toggleWatchLater}><i className="fas fa-alarm-clock"></i> Watch Later</button>
                     <button className = "btn btn-text" onClick = {addToPlaylist}><i className="fas fa-file-plus"></i> Save</button>
+                    <button className = "btn btn-text"onClick = {toggleNotes}><i className="far fa-sticky-note"></i> Add Notes</button>
                 </div>
             </div>
             { displaySaveToPlayList && 
@@ -134,10 +151,15 @@ const SingleVideo = () => {
                     {playListData.map((ele) =>{
                     return <SaveToPlaylistCard plName = {ele} vInfo = {singleVideoData} setToastDisplay = {setToastDisplay}/>
                 })}
-                
             </div>
-            <button onClick = {closeSaveDialog} className = "btn  playlist-save-btn">Save</button>
+            <button onClick = {closeSaveDialog} className = "btn  playlist-save-btn">Close</button>
                 </div>}
+                {
+                notesDisplay && 
+                <div>
+                    <NotesCard videoId = {singleVideoData._id} serverNotes = {serverNotes} setServerNotes = {setServerNotes}/>
+                </div>
+            }
             <p onClick = {toggleDescription} className = "description-btn">Description</p>
             {descriptionToggle && <p>{singleVideoData.description}</p>}
         </div>
@@ -146,7 +168,7 @@ const SingleVideo = () => {
          <RelatedVideo relatedVideo = {relatedVideo}/>
         </div>
         
-        {toastDisplay && <PlaylistToast />}
+        {toastDisplay && <PlaylistToast text = "added to playlist"/>}
     </div>
   )
 }
