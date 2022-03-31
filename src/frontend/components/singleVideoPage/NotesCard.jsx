@@ -53,8 +53,7 @@ const NotesCard = ({videoId, serverNotes, setServerNotes}) => {
 console.log(serverNotes.notes)
   return (
     <div>
-        <p>Add Notes</p>
-        <textarea rows="20" cols="20" onChange = {updateNotesData} value = {serverNotes.notes ? serverNotes.notes :""}></textarea>
+        <textarea rows="20" cols="20" onChange = {updateNotesData} value = {serverNotes.notes ? serverNotes.notes :""} placeholder="Add your notes here"></textarea>
         <button className = "btn outlined" onClick = {deleteNotes}>Delete Notes</button>
         <button className = "btn primary" onClick = {saveNotes}>Save Notes</button>
     </div>

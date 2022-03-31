@@ -29,7 +29,7 @@ const SingleVideo = () => {
         setDescriptionToggle((prev) => !prev)
     }
     const toggleNotes = () => {
-        setNotesDisplay((prev) => !prev)
+        jwtToken ? setNotesDisplay((prev) => !prev) : navigate("/login")
     }
     useEffect(() => {
         const isItLiked = likedData.find((ele) => ele._id === singleVideoData._id)
@@ -127,8 +127,7 @@ const SingleVideo = () => {
         }
         
       },[notesData, singleVideoData._id])
-console.log(notesData)
-console.log(serverNotes)
+
   return (
     <div className = "single-video-wrapper">
         <div className = "side-menu-singleVideo-wrapper">
