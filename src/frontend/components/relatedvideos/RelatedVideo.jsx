@@ -6,7 +6,7 @@ const RelatedVideo = ({relatedVideo}) => {
     <div className = "related-videos">
         <p className="related-title">Related Videos</p>
         {relatedVideo.map((ele )=> {
-            return <RelatedCard vInfo = {ele}/>
+            return <RelatedCard vInfo = {ele} key = {ele._id}/>
         })}
     </div>
   )

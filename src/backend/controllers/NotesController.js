@@ -22,7 +22,6 @@ export const getNoteItemsHandler = function (schema, request) {
       }
     );
   }
-  // const userNotes = schema.users.findBy({ _id: user }).notes;
   return new Response(200, {}, { notes: user.notes });
 };
 
@@ -42,7 +41,7 @@ export const addItemToNotesHandler = function (schema, request) {
         409,
         {},
         {
-          errors: ["The video is already in your liked videos"],
+          errors: ["The Notes is already exists for the video"],
         }
       );
     }

@@ -7,7 +7,6 @@ import { updateLikeFunction } from '../utility-functions/updateLikeFunction';
 import { updateWatchLaterFunction } from '../utility-functions/updateWatchLaterFunction'
 
 const SingleVideo = () => {
-    console.log("single video running")
     const [descriptionToggle, setDescriptionToggle] = useState(false)
     const [ displaySaveToPlayList, setDisplaySaveToPlayList] = useState(() => false)
     const [relatedVideo, setRelatedVideo] = useState([])
@@ -119,7 +118,6 @@ const SingleVideo = () => {
     },[toastDisplay])
     useEffect(() => {
         const videoNotes = notesData.find((ele) => ele._id === singleVideoData._id)
-        console.log("useEffect is running")
         if(videoNotes){
           setServerNotes(() => videoNotes)
         }else {

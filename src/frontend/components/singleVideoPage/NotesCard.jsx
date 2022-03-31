@@ -15,7 +15,6 @@ const NotesCard = ({videoId, serverNotes, setServerNotes}) => {
       try {
         const notesUpdateData = {_id:videoId,notes:serverNotes.notes}
         const response = await axios.post("/api/user/notes",{video: notesUpdateData},{headers:{authorization:jwtToken}})
-        console.log(response.data.notes)
         dispatch({type:"SET_NOTES_DATA", payload: response.data.notes})
       }
       catch(e) {
@@ -25,7 +24,6 @@ const NotesCard = ({videoId, serverNotes, setServerNotes}) => {
     else {
       try {
         const response = await axios.post(`/api/user/notes/${videoId}`, {action:{type:"update", payload:serverNotes.notes}}, {headers:{authorization:jwtToken}})
-        console.log(response.data)
         dispatch({type:"SET_NOTES_DATA", payload: response.data.notes})
           }
           catch(e) {
@@ -50,7 +48,6 @@ const NotesCard = ({videoId, serverNotes, setServerNotes}) => {
   const updateNotesData = (e) => {
     setServerNotes(() => ({notes:e.target.value}))
   }
-console.log(serverNotes.notes)
   return (
     <div>
         <textarea rows="20" cols="20" onChange = {updateNotesData} value = {serverNotes.notes ? serverNotes.notes :""} placeholder="Add your notes here"></textarea>
