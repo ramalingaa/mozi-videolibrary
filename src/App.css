@@ -2,6 +2,7 @@
   --app-background-color:#02121b;
   background-color: var(--app-background-color);
   color: var(--white-color);
+  min-height:100vh
 }
 /* navbar css starts here */
 a {
@@ -67,6 +68,7 @@ a {
   font-size: 1.5rem;
   padding: 0 0.3rem;
   cursor: pointer;
+  border-radius: 50%;
   
 }
 .wish-list {
@@ -112,11 +114,31 @@ a {
   right: 0;
   display: flex;
   justify-content: space-around;
-  padding: 0.5rem;
   color:var(--white-color);
   background-color: var(--app-background-color);
   border: 1px solid var(--div-background-color);
+  text-align: center;
 
+}
+.link-active {
+  background-color: var(--div-background-color);
+  color: var(--app-background-color);
+  padding: 0.5rem 0  0.5rem  1rem;
+}
+.footer-link-active {
+  width: 25%;
+  padding:  0.5rem;
+
+}
+.footer-link-notactive {
+  width: 25%;
+  padding: 0.5rem;
+  border: 1px solid var(--div-background-color)
+
+}
+.link-notactive {
+  background-color:var(--app-background-color);
+  color: var(--white-color);
 }
 .side-navbar-wrapper {
   display: none;
@@ -172,7 +194,7 @@ a {
     padding: 0 0.5rem 0 0;
   }
 }
-@media only screen and (min-width: 850px) {
+@media only screen and (min-width: 768px) {
   .btn {
     padding: 0.5rem 1.3rem;
   }
@@ -187,8 +209,8 @@ a {
   }
   .side-navbar-wrapper {
     display: flex;
-    /* position:relative; */
   }
+ 
   .sidemenu-btn {
     position :absolute;
     top:5%;
@@ -200,9 +222,8 @@ a {
     display: flex;
     flex-direction: column;
     gap:2rem;
-    padding:1rem 2rem;
-    height:100vh;
-    border-right: 3px solid #e8ebec;
+    min-height:100vh;
+    border-right: 3px solid var(--div-background-color);
    
   }
   .sidebar-icon {
@@ -361,7 +382,7 @@ a {
   transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
   pointer-events: none;
   opacity: 1;
-  color:black;
+  color:var(--black-color);
 }
 .input-name:focus + .input-placeholder, .input-name:not(:placeholder-shown) + .input-placeholder {
   opacity: 1;
@@ -384,22 +405,25 @@ a {
 }
 /* Auth page css ends here */
 /* video listing page css starts here */
+.imgb {
+  width: calc(100%);
+  height: 16rem;
+}
 .video-listing-wrapper {
-  width: 80%;
+  width: 100%;
   margin: auto;
- display:flex;
- flex-direction: column;
- gap: 1rem;
+  display:flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 .video-page-wrapper {
   display: flex;
   gap: 1rem;
-  height: 100vh;
+  min-height: 100vh;
 }
 .video-card-wrapper {
   width: 100%;
   text-align: center;
-  /* border: 1px solid var(--div-background-color); */
  position: relative;
 }
 .watch-later-icon {
@@ -438,9 +462,24 @@ a {
   background-color: var(--white-color);
   color:  var(--app-background-color);
 }
+.latest-chip-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
 .skelton-img {
-  /* opacity: 0.7; */
   animation: skelton-loading 1s linear infinite alternate;
+}
+.hide-thumb {
+  display: none;
+  
+}
+
+.video-image {
+  width: 100%;
+  height: auto;
+}
+.show-thumb {
+  display: inline-block;
 }
 
 @keyframes skelton-loading {
@@ -448,7 +487,7 @@ a {
     background-color: hsl(200, 20%, 70%);
   }
   100% {
-   background-color: hsl(200, 20%, 95%);
+   background-color: var(--app-background-color);
  }
 }
 
@@ -463,11 +502,14 @@ a {
    overflow-y: scroll;
 
  }
+ .video-listing-wrapper {
+   height: 100vh;
+ }
  .video-listing-wrapper::-webkit-scrollbar{
    display: none;
  }
  .video-card-wrapper {
-   width: 45%; 
+   width: 48%; 
  }
   
 }
@@ -478,11 +520,12 @@ a {
    display:flex;
    flex-direction: row;
    flex-wrap: wrap;
-  justify-content: flex-start;
-  padding: 0 0 5rem 0;
+   justify-content: flex-start;
+   padding: 0 0 5rem 0;
+   gap: 0.5rem;
 
  }.video-card-wrapper {
-   width: 30%;
+   width: 32%;
    
  }
   
@@ -663,6 +706,7 @@ a {
   display: flex;
   flex-direction: column;
   width: 100%;
+  gap: 0.5rem;
 }
 .history-remove-btn {
   padding: 0;
@@ -674,6 +718,11 @@ a {
  
   .history-video-card {
     margin: 0;
+    width: 100%;
+    gap: 0.5rem;
+  }
+  .history-single-video {
+    width: 32%;
   }
 }
 

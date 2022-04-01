@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from "react-router-dom"
 
 const Home = () => {
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
 
     
   return (
@@ -13,17 +14,35 @@ const Home = () => {
       
        <Link to = "/videos"className = "home-car-card">
            <p className = "text-medium fw-7">Space </p>
-           <img src = "https://res.cloudinary.com/ramlinga/image/upload/v1647841199/Video-library/maxresdefault_n3cjhc.jpg" className = "res-img" alt = "Category"/>
+                  <img alt="" src="" className={isImageLoaded ? "hide-thumb" : "show-thumb imgb skelton-img"}/>
+                    <img
+                        className={isImageLoaded ? "show-thumb video-image" : "hide-thumb"}
+                        alt=""
+                        src="https://res.cloudinary.com/ramlinga/image/upload/v1647841199/Video-library/maxresdefault_n3cjhc.jpg"
+                        onLoad={() => setIsImageLoaded(true)}
+                    />
            <p className = "cat-description">Explore deep space of the universe</p>
        </Link>
        <Link to = "/videos" className = "home-car-card">
            <p className = "text-medium fw-7">Planet Earth </p>
-           <img src = "https://res.cloudinary.com/ramlinga/image/upload/v1647841199/Video-library/maxresdefault_n3cjhc.jpg" className = "res-img" alt = "Category"/>
+                  <img alt="" src="" className={isImageLoaded ? "hide-thumb" : "show-thumb imgb skelton-img"}/>
+                    <img
+                        className={isImageLoaded ? "show-thumb video-image" : "hide-thumb"}
+                        alt=""
+                        src="https://res.cloudinary.com/ramlinga/image/upload/v1647841199/Video-library/maxresdefault_n3cjhc.jpg"
+                        onLoad={() => setIsImageLoaded(true)}
+                    />
            <p className = "cat-description">History of life on Earth </p>
        </Link>
        <Link to = "/videos" className = "home-car-card">
            <p className = "text-medium fw-7">Yoga</p>
-           <img src = "https://res.cloudinary.com/ramlinga/image/upload/v1647841199/Video-library/maxresdefault_n3cjhc.jpg" className = "res-img" alt = "Category"/>
+           <img alt="" src="" className={isImageLoaded ? "hide-thumb" : "show-thumb imgb skelton-img"}/>
+                    <img
+                        className={isImageLoaded ? "show-thumb video-image" : "hide-thumb"}
+                        alt=""
+                        src="https://res.cloudinary.com/ramlinga/image/upload/v1647841199/Video-library/maxresdefault_n3cjhc.jpg"
+                        onLoad={() => setIsImageLoaded(true)}
+                    />
            <p className = "cat-description">What Yoga does to your body</p>
        </Link>
     </div>
