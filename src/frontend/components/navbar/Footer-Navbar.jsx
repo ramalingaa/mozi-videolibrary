@@ -1,13 +1,13 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 const FooterNavbar = () => {
   return (
     <div className = "footer-nav">
-        <Link to ="/">Watch Later</Link> |
-        <Link to = "/LikedVideo">Liked</Link>|
-        <Link to = "/History">History</Link>|
-        <Link to = "/Playlist">Playlist</Link>
+        <NavLink  className = {({isActive}) => isActive ? "link-active footer-link-active":"link-notactive footer-link-notactive"} to ="/WatchLater">Watch Later</NavLink> 
+        <NavLink className = {({isActive}) => isActive ? "link-active footer-link-active":"link-notactive footer-link-notactive"} to = "/LikedVideo">Liked</NavLink>
+        <NavLink className = {({isActive}) => isActive ? "link-active footer-link-active":"link-notactive footer-link-notactive"} to = "/History">History</NavLink>
+        <NavLink className = {({isActive}) => isActive ? "link-active footer-link-active":"link-notactive footer-link-notactive"} to = "/Playlist">Playlist</NavLink>
     </div>
   )
 }

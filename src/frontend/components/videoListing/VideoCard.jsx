@@ -8,13 +8,10 @@ const VideoCard = ({vInfo}) => {
     const {  likedData, watchLaterData } = state
     const { jwtToken } = useAuthContext()
     const [isLiked, setIsLiked] = useState(false)
+    const [isImageLoaded, setIsImageLoaded] = useState(false);
+
     const [isWatchLaterAdded, setIsWatchLaterAdded] = useState(false)
     const navigate = useNavigate()
-    
-    const updateSingleVideo = () => {
-        dispatch({type:"SET_SINGLE_VIDEO_DATA", payload: vInfo})
-        navigate("/SingleVideo")
-    }
     
     useEffect(() => {
         const isItLiked = likedData.find((ele) => ele._id === vInfo._id)
@@ -30,13 +27,18 @@ const VideoCard = ({vInfo}) => {
     },[])
     const updateLikedVideos = updateLikeFunction(jwtToken, isLiked, vInfo, dispatch, setIsLiked, likedData, navigate)
     const toggleWatchLater = updateWatchLaterFunction(jwtToken, isWatchLaterAdded, vInfo, dispatch, setIsWatchLaterAdded, watchLaterData, navigate);
-  return (
+    return (
     <div className = "video-card-wrapper">
         
         <div>
             <Link to = {`/videos/${vInfo._id}`}>
-                <img src = {vInfo.thumbnail} className = "res-img video-img skelton-img" alt = "video"/>
-
+                <img alt="" src="" className={isImageLoaded ? "hide-thumb" : "show-thumb imgb skelton-img"}/>
+                    <img
+                        className={isImageLoaded ? "show-thumb video-image" : "hide-thumb"}
+                        alt=""
+                        src={vInfo.thumbnail}
+                        onLoad={() => setIsImageLoaded(true)}
+                    />
             </Link>
         </div>
         <div className = "like-watchlater-wrapper">

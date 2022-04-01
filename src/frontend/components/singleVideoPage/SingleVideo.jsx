@@ -126,18 +126,22 @@ const SingleVideo = () => {
         
       },[notesData, singleVideoData._id])
 
+      const updateVideoViews = (e) => {
+          singleVideoData.views += 1
+      }
+
   return (
     <div className = "single-video-wrapper">
         <div className = "side-menu-singleVideo-wrapper">
             <SideMenuGuide singlePage = {singlePage}/>
         </div>
         <div className = "playsection-wrapper">
-        <video src = { singleVideoData.video} width ="100%" controls/>
+        <video src = { singleVideoData.video} width ="100%" controls onPlay ={updateVideoViews}/>
         <div className = "single-video-card">
             
             <p className = "video-title">{singleVideoData.title} by {singleVideoData.creator}</p>
             <div className = "video-action-wrapper">
-                <p>Views</p>
+                <p>{singleVideoData.views} Views</p>
                 <div>
                     <button className = {`btn btn-text ${isLiked ? "selected" :""}`} onClick = {updateLikedVideos}><i className="fas fa-thumbs-up"></i> Like</button>
                     <button className = {`btn btn-text ${isWatchLaterAdded ? "selected" :""}`} onClick = {toggleWatchLater}><i className="fas fa-alarm-clock"></i> Watch Later</button>

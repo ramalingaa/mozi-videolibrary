@@ -38,7 +38,7 @@ const Navbar = () => {
         <i className="far fa-search search-icon"></i>
             <input type = "text" className = "i-text search-input" onKeyPress = {searchHandler} onChange = {updateSearchInput}/>  
         </div>
-        {jwtToken ? <button onClick = {toggleProfileCard}><i className="far fa-user nav-icon"></i></button> : 
+        {jwtToken ? <i className="far fa-user nav-icon" onClick = {toggleProfileCard}></i> : 
         <Link to = "/Login" className="navbar-cart">
             <div className="page-links wish-list">SIGN IN
                 <i className="fal fa-user-circle nav-icon"></i>
