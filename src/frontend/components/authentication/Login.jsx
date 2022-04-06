@@ -27,7 +27,7 @@ const Login = () => {
                     }
                     setJwtToken(() =>response.data.encodedToken)
                     setUserProfileData(() =>response.data.foundUser )
-                    navigate("/")
+                    navigate(-1)
                 } else {
                     throw new Error()
                 }
@@ -62,7 +62,7 @@ const Login = () => {
             }
             setJwtToken(() =>response.data.encodedToken)
             setUserProfileData(() =>response.data.foundUser )
-            navigate("/videos")
+            navigate(-1)
 
         }catch(e) {
             console.log(e)
