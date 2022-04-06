@@ -22,7 +22,7 @@ const WatchLater = () => {
       <SideMenuGuide />
       <div className = "single-play-card">
       {watchLaterData.map((ele) => {
-        return <WatchLaterVideoCard vInfo = {ele} setToastDisplay = { setToastDisplay} />
+        return <WatchLaterVideoCard vInfo = {ele} setToastDisplay = { setToastDisplay} key = {ele._id}/>
       })}
       {watchLaterData.length < 1 && 
           <div className = "empty-single-playlist">

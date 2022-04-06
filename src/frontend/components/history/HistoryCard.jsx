@@ -1,19 +1,13 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { useAuthContext, useVideoContext } from '../../context/index-context'
-import { useNavigate, Link } from 'react-router-dom'
+import {  Link } from 'react-router-dom'
 
 const HistoryCard = ({vInfo}) => {
     const { jwtToken } = useAuthContext()
     const { dispatch } = useVideoContext()
-    const navigate = useNavigate()
     const [isImageLoaded, setIsImageLoaded] = useState(false);
 
-
-    const openVideoPlayer = () => {
-      dispatch({type:"SET_SINGLE_VIDEO_DATA", payload: vInfo})
-      navigate("/SingleVideo")
-  }
     const removeFromHistory = () => {
 
         (async () => {
@@ -30,10 +24,10 @@ const HistoryCard = ({vInfo}) => {
   return (
     <div className = "playlist-video-card history-single-video">
              <Link to = {`/videos/${vInfo._id}`}>
-                <img alt="" src="" className={isImageLoaded ? "hide-thumb" : "show-thumb imgb skelton-img"}/>
+                <p className={isImageLoaded ? "hide-thumb" : "show-thumb preload-img skelton-img"}></p>
                     <img
                         className={isImageLoaded ? "show-thumb video-image" : "hide-thumb"}
-                        alt=""
+                        alt="video thumbnail"
                         src={vInfo.thumbnail}
                         onLoad={() => setIsImageLoaded(true)}
                     />

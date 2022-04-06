@@ -21,7 +21,7 @@ const LikedVideoCard = ({vInfo}) => {
   return (
       <div className = "playlist-video-card">
             <Link to = {`/videos/${vInfo._id}`}>
-            <img alt="" src="" className={isImageLoaded ? "hide-thumb" : "show-thumb imgb skelton-img"}/>
+                    <p className={isImageLoaded ? "hide-thumb" : "show-thumb preload-img skelton-img"}></p>
                     <img
                         className={isImageLoaded ? "show-thumb video-image" : "hide-thumb"}
                         alt="video thumbnail"

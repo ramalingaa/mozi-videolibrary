@@ -1,14 +1,27 @@
-.App {
+:root {
+  --skeleton-background-color:hsl(0, 0%, 95%);
+  --skeleton-final-color:hsl(0, 6%, 86%);
   --app-background-color:#02121b;
+}
+
+
+
+.dark-mode {
   background-color: var(--app-background-color);
   color: var(--white-color);
-  min-height:100vh
+  
 }
+.light-mode {
+  background-color: var(--white-color);
+  color: var(--app-background-color);
+}
+
 /* navbar css starts here */
 a {
   text-decoration: none;
   color: inherit;
 }
+
 .btn {
   padding: 0.5rem;
   font-size: 0.8rem;
@@ -48,10 +61,11 @@ a {
 .navbar-search {
   position: relative;
   width:8rem;
+  display: none;
 }
 .nav-icon-wishlist {
   -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black;
+  -webkit-text-stroke-color: var(----black-color);
   color: var(--white-color);
   cursor: pointer;
 }
@@ -60,6 +74,12 @@ a {
   align-items: center;
   gap: 1rem;
 }
+.signin-theme-wrapper {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
 .search-input {
   padding: 0.5rem 2rem 0.5rem 3rem;
   width: 100%;
@@ -130,15 +150,17 @@ a {
   padding:  0.5rem;
 
 }
-.footer-link-notactive {
+.footer-link-inactive {
   width: 25%;
   padding: 0.5rem;
-  border: 1px solid var(--div-background-color)
+  border: 1px solid var(--div-background-color);
+  background-color: inherit;
+  color: inherit;
 
 }
-.link-notactive {
-  background-color:var(--app-background-color);
-  color: var(--white-color);
+.link-inactive {
+  background-color: inherit;
+  color: inherit;
 }
 .side-navbar-wrapper {
   display: none;
@@ -182,6 +204,9 @@ a {
   .navbar-search {
     width: 15rem;
   }
+  .navbar-search {
+    display: inline-block;
+  }
 }
 @media only screen and (min-width: 670px) {
   .btn {
@@ -224,11 +249,10 @@ a {
     gap:2rem;
     min-height:100vh;
     border-right: 3px solid var(--div-background-color);
-   
   }
   .sidebar-icon {
-    padding: 0 2rem 0 0;
-      font-size: 1.5rem;
+    padding: 0 2rem 0 1rem;
+    font-size: 1.5rem;
   }
 }
 
@@ -240,7 +264,7 @@ a {
     display: inline-block;
   }
   .side-navbar-content  {
-    width:17rem
+    width:17rem;
   }
   .navbar-search {
     width: 22rem;
@@ -254,7 +278,6 @@ a {
  /* user profile css start here */
  .profile-card-wrapper {
   width: 15rem;
-  background-color:var(--app-background-color);
   padding: 1rem;
   position:absolute;
   right: 0%;
@@ -405,7 +428,7 @@ a {
 }
 /* Auth page css ends here */
 /* video listing page css starts here */
-.imgb {
+.preload-img {
   width: calc(100%);
   height: 16rem;
 }
@@ -453,14 +476,18 @@ a {
 }
 .chip-btn {
   border-radius: 1rem;
-  background-color: var(--app-background-color);
-  color: var(--white-color);
-  border: 1px solid var(--div-background-color);
+  background-color: inherit;
+  color: inherit;
+  border: 1px solid var(--grey-color);
 
 }
 .chip-selected {
-  background-color: var(--white-color);
-  color:  var(--app-background-color);
+  background-color: var(--div-background-color);
+  color: var(--app-background-color);
+}
+.light-chip-bg {
+  background-color:var(--app-background-color);
+  color: var(--white-color);
 }
 .latest-chip-wrapper {
   display: flex;
@@ -484,7 +511,7 @@ a {
 
 @keyframes skelton-loading {
   0% {
-    background-color: hsl(200, 20%, 70%);
+    background-color: var(--skeleton-background-color);
   }
   100% {
    background-color: var(--app-background-color);
@@ -502,16 +529,16 @@ a {
    overflow-y: scroll;
 
  }
- .video-listing-wrapper {
-   height: 100vh;
- }
  .video-listing-wrapper::-webkit-scrollbar{
    display: none;
  }
  .video-card-wrapper {
    width: 48%; 
  }
-  
+ .preload-img {
+  width: calc(100%);
+  height: 12rem;
+}
 }
 @media screen and (min-width: 978px) {
  .video-listing-wrapper {
@@ -545,7 +572,7 @@ a {
   left:0;
 }
 .save-to-card {
-  background-color: white;
+  background-color: var(--white-color);
   position: fixed;
   width: 10rem;
   min-height:10rem ;
@@ -567,11 +594,11 @@ a {
   display: flex;
   gap:0.3rem;
   padding:0.5rem 0;
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid var(--grey-color);
   color: var(--black-color);
 }
 .related-title {
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid var(--grey-color);
   padding: 0 0 1rem 0;
 }
 .related-videos {
@@ -587,11 +614,11 @@ a {
   display: flex;
   justify-content: space-between;
   padding: 1rem 0;
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid var(--grey-color);
   align-items: baseline;
 }
 .outlined {
-  border: 1px solid #333;
+  border: 1px solid var(--grey-color);
 }
 .description-btn {
   margin:1rem 0;
@@ -675,6 +702,10 @@ a {
   gap: 1rem;
   
 }
+.history-card-wrapper,.single-card-wrapper,.playlist-main-wrapperW-sidebar {
+  min-height: 100vh;
+}
+
 @media only screen and (min-width: 768px) {
   .playlist-main-wrapperW-sidebar {
     display: flex;

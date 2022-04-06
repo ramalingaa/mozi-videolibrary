@@ -7,8 +7,9 @@ import { useNavigate, Link } from "react-router-dom";
 const Signup = () => {
 
     const [showPassword, setShowPassword] = useState({password:false, reEnterPassword:false})
-    const [isPasswordMatch, setISPasswordMatch] = useState(true)
+    const [isPasswordMatch, setISPasswordMatch] = useState(false)
     const [error, setError] = useState({emailExist:false,blankError: false, otherError:false})
+    const [formError, setFormError] = useState({})
 
     const [newUserData, setNewUserData] = useState({email:"", password:"",name:""})
     const navigate  = useNavigate()
@@ -26,8 +27,26 @@ const Signup = () => {
     const checkPassword = (e) => {
         newUserData.password === e.target.value ? setISPasswordMatch(() => true) : setISPasswordMatch(() => false)
     }
+    const formValidate = () => {
+        let err = {}
+        if(!(newUserData.email.includes("@"))){
+            err["email"] = "Enter valid email"
+        }
+        if(newUserData.name.length < 4){
+            err["name"] = "Name should be greater than four characters"
+        }
+        if(newUserData.password.length < 8){
+            err["password"] = "Password must be greater than eight characters"
+        }
+        return err
+    }
+    const blurHandler = () => {
+        const errorObject = formValidate()
+        setFormError(() => errorObject)
+    }
     const signupUser = async () => {
-        if(newUserData.email && newUserData.password && newUserData.name){
+        const errorObject = formValidate()
+        if(Object.keys(errorObject).length < 1 && isPasswordMatch){
             try {
                 const response = await axios.post("/api/auth/signup",newUserData)
                 if(response.status === 201){
@@ -43,7 +62,7 @@ const Signup = () => {
             }
         }
         else {
-            setError((prev) => ({emailExist:false,blankError: true, otherError:false}))
+            setFormError(() => errorObject)
         }
     }
     
@@ -53,16 +72,19 @@ const Signup = () => {
         <div className = "login-card-wrapper">
             <p className = "text-large login-header">Signup</p>
             <label className = "input-label">
-                <input type = "text" placeholder = " " name = "name"className = "i-text input-name login-input" onChange = {updateNewUserData}/>
+                <input type = "text" placeholder = " " name = "name"className = "i-text input-name login-input" onChange = {updateNewUserData} onBlur = {blurHandler}/>
                 <span className = "input-placeholder">Full Name</span>
+                <p className = "login-forgotPassword">{formError.name}</p>
             </label>
             <label className = "input-label">
-                <input type = "email" placeholder = " "  name = "email"className = "i-text input-name login-input" onChange = {updateNewUserData}/>
+                <input type = "email" placeholder = " "  name = "email"className = "i-text input-name login-input" onChange = {updateNewUserData} onBlur = {blurHandler}/>
                 <span className = "input-placeholder">Email Address</span>
+                <p className = "login-forgotPassword">{formError.email}</p>
             </label>
             <label className = "input-label password-wrapper">
-                <input type = {showPassword.password ? "text" : "password"} name = "password" placeholder = " " className = "i-text input-name login-input" onChange = {updateNewUserData}/>
+                <input type = {showPassword.password ? "text" : "password"} name = "password" placeholder = " " className = "i-text input-name login-input" onChange = {updateNewUserData} onBlur = {blurHandler}/>
                 <span  className = "input-placeholder">Password</span>
+                <p className = "login-forgotPassword">{formError.password}</p>
                 <button className = "show-password" onClick = {toggleDisplayPassword}>{showPassword.password ? <i className="fas fa-eye "></i> : <i className="fas fa-eye-slash"></i>}</button>
                 
             </label>

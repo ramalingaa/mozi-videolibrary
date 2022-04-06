@@ -1,10 +1,11 @@
 import React, { useState, Suspense, lazy } from 'react'
-import { useVideoContext } from '../../context/index-context'
+import { useVideoContext, useAuthContext } from '../../context/index-context'
 import { SideMenuGuide} from '../index-components'
 
 const  VideoCard = lazy(() => import('./VideoCard') )
 
 const VideoListing = () => {
+  const { theme } = useAuthContext()
     const [chipSelected, setChipSelected] = useState({all:true, space:false, earth:false})
     const { state, dispatch } = useVideoContext()
     const { videoData, serverData } =  state
@@ -41,13 +42,13 @@ const VideoListing = () => {
     <div className = "video-page-wrapper">
       <SideMenuGuide />
       <div className = "video-chip-wrapper">
-        <div  className = "latest-chip-wrapper">
-          <div className = "chip-wrapper">
-            <button className = {`btn chip-btn ${chipSelected.all && "chip-selected"}`} onClick = {displayAllVideos}>All</button>
-            <button className = {`btn chip-btn ${chipSelected.space && "chip-selected"}`} onClick = {displaySpaceVideos}>Space</button>
-            <button className = {`btn chip-btn ${chipSelected.earth && "chip-selected"}`} onClick = {displayEarthVideos}>Earth</button>
+        <div  className = {`latest-chip-wrapper ${theme}`}>
+          <div className = {`chip-wrappe`}>
+            <button className = {`btn chip-btn ${chipSelected.all && (theme === 'light-mode' ?"chip-selected light-chip-bg" :"chip-selected")}`} onClick = {displayAllVideos}>All</button>
+            <button className = {`btn chip-btn ${chipSelected.space && (theme === 'light-mode' ?"chip-selected light-chip-bg" :"chip-selected")}`} onClick = {displaySpaceVideos}>Space</button>
+            <button className = {`btn chip-btn ${chipSelected.earth && (theme === 'light-mode' ?"chip-selected light-chip-bg" :"chip-selected")}`} onClick = {displayEarthVideos}>Earth</button>
           </div>
-          <button className = {`btn chip-btn ${latestSort && "chip-selected"}`} onClick = {displayLatestVideos}>Latest Videos</button>
+          <button className = {`btn chip-btn ${latestSort && (theme === 'light-mode' ?"chip-selected light-chip-bg" :"chip-selected")}`} onClick = {displayLatestVideos}>Latest Videos</button>
         </div>
         <div  className = "video-listing-wrapper">
         <Suspense fallback={<h1>This page is loading and don't distroub while loading</h1>}>

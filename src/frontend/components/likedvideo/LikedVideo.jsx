@@ -11,7 +11,7 @@ const LikedVideo = () => {
       <SideMenuGuide />
       <div className = "single-play-card">
         {likedData.map((ele) => {
-            return <LikedVideoCard vInfo = {ele}/>
+            return <LikedVideoCard vInfo = {ele} key = {ele._id}/>
         })}
         {likedData.length < 1 && 
           <div className = "empty-single-playlist">

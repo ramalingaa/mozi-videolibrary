@@ -32,13 +32,13 @@ const VideoCard = ({vInfo}) => {
         
         <div>
             <Link to = {`/videos/${vInfo._id}`}>
-                <img alt="" src="" className={isImageLoaded ? "hide-thumb" : "show-thumb imgb skelton-img"}/>
-                    <img
-                        className={isImageLoaded ? "show-thumb video-image" : "hide-thumb"}
-                        alt=""
-                        src={vInfo.thumbnail}
-                        onLoad={() => setIsImageLoaded(true)}
-                    />
+                <p className={isImageLoaded ? "hide-thumb" : "show-thumb preload-img skelton-img"}></p>
+                <img
+                    className={isImageLoaded ? "show-thumb video-image" : "hide-thumb"}
+                    alt="video thumbnail"
+                    src={vInfo.thumbnail}
+                    onLoad={() => setIsImageLoaded(true)}
+                />
             </Link>
         </div>
         <div className = "like-watchlater-wrapper">

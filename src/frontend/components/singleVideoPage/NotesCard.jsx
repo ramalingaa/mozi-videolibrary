@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, {useState, useEffect}from 'react'
 import {  useVideoContext, useAuthContext} from '../../context/index-context'
 
-const NotesCard = ({videoId, serverNotes, setServerNotes}) => {
+const NotesCard = ({videoId, serverNotes, setServerNotes, setNotesDisplay, setNotesToast}) => {
   const [userNotesData, setUserNotesData] = useState("")
   
   const { jwtToken } = useAuthContext()
@@ -16,6 +16,8 @@ const NotesCard = ({videoId, serverNotes, setServerNotes}) => {
         const notesUpdateData = {_id:videoId,notes:serverNotes.notes}
         const response = await axios.post("/api/user/notes",{video: notesUpdateData},{headers:{authorization:jwtToken}})
         dispatch({type:"SET_NOTES_DATA", payload: response.data.notes})
+        setNotesDisplay(() => false)
+        setNotesToast((prev) => ({added:true, removed:false}))
       }
       catch(e) {
         console.log(e)
@@ -25,6 +27,8 @@ const NotesCard = ({videoId, serverNotes, setServerNotes}) => {
       try {
         const response = await axios.post(`/api/user/notes/${videoId}`, {action:{type:"update", payload:serverNotes.notes}}, {headers:{authorization:jwtToken}})
         dispatch({type:"SET_NOTES_DATA", payload: response.data.notes})
+        setNotesDisplay(() => false)
+        setNotesToast((prev) => ({added:true, removed:false}))
           }
           catch(e) {
         console.log(e)
@@ -38,7 +42,9 @@ const NotesCard = ({videoId, serverNotes, setServerNotes}) => {
     try {
       const response = await axios.delete(`/api/user/notes/${videoId}`, {headers:{authorization:jwtToken}})
       dispatch({type:"SET_NOTES_DATA", payload: response.data.notes})
+      setNotesDisplay(() => false)
       setServerNotes(() => ({notes:""}))
+      setNotesToast((prev) => ({added:false, removed:true}))
         }
         catch(e) {
       console.log(e)

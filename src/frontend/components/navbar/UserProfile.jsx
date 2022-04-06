@@ -3,18 +3,17 @@ import { useNavigate } from 'react-router-dom'
 import { useAuthContext } from '../../context/index-context'
 
 const UserProfile = ({setProfileDisplay}) => {
-    const { userProfileData, setJwtToken } = useAuthContext()
+    const { userProfileData, setJwtToken, theme } = useAuthContext()
     const  navigate  = useNavigate()
     const logoutUser = () => {
-        localStorage.removeItem("JWT_TOKEN_MOZI")
-        localStorage.removeItem("USER_PROFILE_MOZI")
+        localStorage.removeItem("mozi")
         setJwtToken(() => "")
         setProfileDisplay((prev) => !prev)
         navigate("/login")
         
       }
   return (
-    <div className = "profile-card-wrapper">
+    <div className = {`profile-card-wrapper ${theme}`}>
         <p>Hello <strong>{userProfileData.firstName}</strong></p>
         <p >Our Policies</p>
         <p>Contact Us</p>

@@ -5,6 +5,7 @@ import { useAuthContext } from '../../context/index-context'
 
 const Login = () => {
 
+    const [rememberMe, setRememberMe] = useState(false)
     const [showPassword, setShowPassword] = useState(false)
     const [error, setError] = useState({emailNotFound:false,wrongCredentials:false, blankError: false, otherError:false})
     const [userData, setUserData] = useState({email:"", password:""})
@@ -20,7 +21,10 @@ const Login = () => {
             
                 const response = await axios.post("/api/auth/login",userData)
                 if(response.status === 200){
-                    localStorage.setItem("mozi",JSON.stringify({"JWT_TOKEN_MOZI":response.data.encodedToken, "USER_PROFILE_MOZI":response.data.foundUser.firstName}))
+                    if(rememberMe){
+                        localStorage.setItem("mozi",JSON.stringify({"JWT_TOKEN_MOZI":response.data.encodedToken, "USER_PROFILE_MOZI":response.data.foundUser.firstName}))
+
+                    }
                     setJwtToken(() =>response.data.encodedToken)
                     setUserProfileData(() =>response.data.foundUser )
                     navigate("/")
@@ -53,7 +57,9 @@ const Login = () => {
         try {
             const guestData = {email:"ramalinga.kalagotla@gmail.com", password:"123456"}
             const response = await axios.post("/api/auth/login",guestData)
-            localStorage.setItem("mozi",JSON.stringify({"JWT_TOKEN_MOZI":response.data.encodedToken, "USER_PROFILE_MOZI":response.data.foundUser.firstName}))
+            if(rememberMe){
+                localStorage.setItem("mozi",JSON.stringify({"JWT_TOKEN_MOZI":response.data.encodedToken, "USER_PROFILE_MOZI":response.data.foundUser.firstName}))
+            }
             setJwtToken(() =>response.data.encodedToken)
             setUserProfileData(() =>response.data.foundUser )
             navigate("/videos")
@@ -62,7 +68,9 @@ const Login = () => {
             console.log(e)
         }
     }
-
+    const rememberHandler = () => {
+        setRememberMe((prev) => !prev)
+    }
   return (
     <div className = "login-page-wrapper">
         <div className = "login-card-wrapper">
@@ -82,7 +90,7 @@ const Login = () => {
             {error.wrongCredentials && <p className = "login-forgotPassword">Invalid credentials.</p>}
             {error.blankError && <p className = "login-forgotPassword">Please fill in required details.</p>}
             <div className = "rememberMe-wrapper">
-                <label><input type = "checkbox" className = "remember-checkbox"/>Remember me</label>
+                <label><input type = "checkbox" className = "remember-checkbox" onChange = {rememberHandler}/>Remember me</label>
                 <Link to = "/ForgotPassword" className = "login-forgotPassword">Forgot password ?</Link>
             </div>
             <button className = "btn primary" onClick = {loginUser}>Login</button>

@@ -22,7 +22,7 @@ const ForgotPassword = () => {
     }
     const signupUser = async () => {
         try {
-            const response = await axios.post("/api/auth/signup",newUserData)
+            await axios.post("/api/auth/signup",newUserData)
             navigate("/login")
         }catch (e){
             console.log("signup failed",e)

@@ -4,9 +4,9 @@ import { Routes , Route} from "react-router-dom"
 import { useAuthContext } from "./frontend/context/index-context"
 import MockAPI from "./MockMan"
 function App() {
-  const { jwtToken } = useAuthContext()
+  const { jwtToken, theme } = useAuthContext()
   return (
-    <div className="App">
+    <div className={theme}>
       <Navbar />
       <Routes>
           <Route path = "/" element = {<Home/>} />

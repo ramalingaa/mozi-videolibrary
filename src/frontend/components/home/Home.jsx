@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { Link } from "react-router-dom"
+import { useAuthContext } from "../../context/index-context"
 
 const Home = () => {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
-
+  const { theme } = useAuthContext()
     
   return (
     <div>
@@ -12,38 +13,38 @@ const Home = () => {
       </div>
     <div className = "home-main-wrapper">
       
-       <Link to = "/videos"className = "home-car-card">
+       <Link to = "/videos"className = {`home-car-card ${theme}`}>
            <p className = "text-medium fw-7">Space </p>
-                  <img alt="" src="" className={isImageLoaded ? "hide-thumb" : "show-thumb imgb skelton-img"}/>
+                  <p className={isImageLoaded ? "hide-thumb" : "show-thumb preload-img skelton-img"}></p>
                     <img
                         className={isImageLoaded ? "show-thumb video-image" : "hide-thumb"}
-                        alt=""
+                        alt="video thumbnail"
                         src="https://res.cloudinary.com/ramlinga/image/upload/v1647841199/Video-library/maxresdefault_n3cjhc.jpg"
                         onLoad={() => setIsImageLoaded(true)}
                     />
            <p className = "cat-description">Explore deep space of the universe</p>
        </Link>
-       <Link to = "/videos" className = "home-car-card">
+       <Link to = "/videos" className = {`home-car-card ${theme}`}>
            <p className = "text-medium fw-7">Planet Earth </p>
-                  <img alt="" src="" className={isImageLoaded ? "hide-thumb" : "show-thumb imgb skelton-img"}/>
+                  <p className={isImageLoaded ? "hide-thumb" : "show-thumb preload-img skelton-img"}></p>
                     <img
                         className={isImageLoaded ? "show-thumb video-image" : "hide-thumb"}
-                        alt=""
-                        src="https://res.cloudinary.com/ramlinga/image/upload/v1647841199/Video-library/maxresdefault_n3cjhc.jpg"
+                        alt="video thumbnail"
+                        src="https://res.cloudinary.com/ramlinga/image/upload/c_scale,h_363,w_637/v1648703357/Video-library/Planet%20Earth/sddefault_p5pbd6.jpg"
                         onLoad={() => setIsImageLoaded(true)}
                     />
            <p className = "cat-description">History of life on Earth </p>
        </Link>
-       <Link to = "/videos" className = "home-car-card">
-           <p className = "text-medium fw-7">Yoga</p>
-           <img alt="" src="" className={isImageLoaded ? "hide-thumb" : "show-thumb imgb skelton-img"}/>
+       <Link to = "/videos" className = {`home-car-card ${theme}`}>
+           <p className = "text-medium fw-7">Other Planets</p>
+           <p className={isImageLoaded ? "hide-thumb" : "show-thumb preload-img skelton-img"}></p>
                     <img
                         className={isImageLoaded ? "show-thumb video-image" : "hide-thumb"}
-                        alt=""
-                        src="https://res.cloudinary.com/ramlinga/image/upload/v1647841199/Video-library/maxresdefault_n3cjhc.jpg"
+                        alt="video thumbnail"
+                        src="https://res-console.cloudinary.com/ramlinga/thumbnails/transform/v1/image/upload//v1648539886/VmlkZW8tbGlicmFyeS9zZGRlZmF1bHRfeHVqMG5y/drilldown"
                         onLoad={() => setIsImageLoaded(true)}
                     />
-           <p className = "cat-description">What Yoga does to your body</p>
+           <p className = "cat-description">Is there life on other planets?</p>
        </Link>
     </div>
     </div>
