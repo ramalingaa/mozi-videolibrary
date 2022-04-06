@@ -6,7 +6,6 @@ const SideMenuGuide = ({singlePage = false}) => {
   const { theme } = useAuthContext()
   return (
     <div className ="side-navbar-wrapper">
-
        <div className = {`side-navbar-content ${singlePage && "singlepage-sidebar"} ${theme}`}>
             <NavLink to ="/videos" className = {!singlePage && (({isActive}) => isActive ? "link-active":"link-inactive")}><i className="fas fa-rss sidebar-icon" title = {singlePage ? "Latest Videos" :""}></i>{ !singlePage && "Latest Videos"}</NavLink>
             <NavLink to ="/WatchLater" className = {!singlePage && (({isActive}) => isActive ? "link-active":"link-inactive")}><i className="fas fa-alarm-clock sidebar-icon" title = {singlePage ? "Watch Later" :""}></i>{ !singlePage && "Watch Later"}</NavLink> 
