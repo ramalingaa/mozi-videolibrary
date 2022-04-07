@@ -772,3 +772,18 @@ a {
 .toast-removed {
   background-color: var(--alert-warning);
 }
+/* error page css starts here */
+
+.error-page-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  gap: 1rem;
+}
+.error404-text {
+  font-size:5rem;
+  font-weight:bold;
+  letter-spacing: 1rem;
+}

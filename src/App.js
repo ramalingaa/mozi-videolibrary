@@ -1,6 +1,6 @@
 import "./App.css";
-import { Navbar, Home, Login, Signup, ForgotPassword, FooterNavbar, VideoListing, SingleVideo, PlayList, SinglePlaylistVideoCard, LikedVideo, History, WatchLater } from "./frontend/components/index-components";
-import { Routes , Route} from "react-router-dom"
+import { Navbar, Home, Login, Signup, ForgotPassword, FooterNavbar, VideoListing, SingleVideo, PlayList, SinglePlaylistVideoCard, LikedVideo, History, WatchLater, ErrorPage } from "./frontend/components/index-components";
+import { Routes , Route, Navigate} from "react-router-dom"
 import { useAuthContext } from "./frontend/context/index-context"
 import MockAPI from "./MockMan"
 function App() {
@@ -10,17 +10,18 @@ function App() {
       <Navbar />
       <Routes>
           <Route path = "/" element = {<Home/>} />
-          <Route path = "/login" element = {<Login />} />
-          <Route path = "/signup" element = {<Signup />} />
-          <Route path = "/ForgotPassword" element = { <ForgotPassword/> }/> 
+          <Route path = "/login" element = {jwtToken ? <Navigate to = "/videos" /> :<Login />} />
+          <Route path = "/signup" element = {jwtToken ? <Navigate to = "/videos" /> :<Signup />} />
+          <Route path = "/ForgotPassword" element = { jwtToken ? <Navigate to = "/videos" /> :<ForgotPassword/> }/> 
           <Route path = "/videos" element = { <VideoListing/> }/> 
           <Route path = "/videos/:videoId" element = { <SingleVideo/> }/> 
-          <Route path = "/Playlist" element = {jwtToken ? <PlayList /> : <Login />} />
-          <Route path = "/SinglePlaylist" element = {jwtToken ? <SinglePlaylistVideoCard /> : <Login />} />
-          <Route path = "/LikedVideo" element = {jwtToken ? <LikedVideo /> : <Login />} />
-          <Route path = "/History" element = {jwtToken ? <History /> : <Login />} />
-          <Route path = "/WatchLater" element = {jwtToken ? <WatchLater /> : <Login />} />
+          <Route path = "/Playlist" element = {jwtToken ? <PlayList /> : <Navigate to = "/login" />} />
+          <Route path = "/SinglePlaylist" element = {jwtToken ? <SinglePlaylistVideoCard /> : <Navigate to = "/login" />} />
+          <Route path = "/LikedVideo" element = {jwtToken ? <LikedVideo /> : <Navigate to = "/login" />} />
+          <Route path = "/History" element = {jwtToken ? <History /> : <Navigate to = "/login" />} />
+          <Route path = "/WatchLater" element = {jwtToken ? <WatchLater /> : <Navigate to = "/login" />} />
           <Route path = "/Mockman" element = {<MockAPI />} />
+          <Route path = "*" index element = {<ErrorPage />} />
 
 
 

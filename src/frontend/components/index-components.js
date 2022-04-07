@@ -25,5 +25,6 @@ import History from "./history/History"
 import HistoryCard from "./history/HistoryCard"
 import WatchLater from "./watchlater/WatchLater"
 import WatchLaterVideoCard from "./watchlater/WatchLaterVideoCard"
+import ErrorPage from "./ErrorPage/ErrorPage"
 
-export { ForgotPassword, Login, Signup, Home, FooterNavbar, Navbar, SideMenuGuide, UserProfile, VideoCard, VideoListing, SaveToPlaylistCard, SingleVideo, NotesCard, RelatedCard, RelatedVideo, NotesToast, PlaylistToast, PlayList, PlaylistCard, PlaylistVideoCard, SinglePlaylistVideoCard, LikedVideo, LikedVideoCard, History, HistoryCard, WatchLater, WatchLaterVideoCard}
+export { ForgotPassword, Login, Signup, Home, FooterNavbar, Navbar, SideMenuGuide, UserProfile, VideoCard, VideoListing, SaveToPlaylistCard, SingleVideo, NotesCard, RelatedCard, RelatedVideo, NotesToast, PlaylistToast, PlayList, PlaylistCard, PlaylistVideoCard, SinglePlaylistVideoCard, LikedVideo, LikedVideoCard, History, HistoryCard, WatchLater, WatchLaterVideoCard, ErrorPage}
