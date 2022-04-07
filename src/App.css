@@ -529,6 +529,9 @@ a {
    overflow-y: scroll;
 
  }
+ .video-page-wrapper {
+   height:100vh;
+ }
  .video-listing-wrapper::-webkit-scrollbar{
    display: none;
  }
