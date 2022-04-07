@@ -41,7 +41,7 @@ const Home = () => {
                     <img
                         className={isImageLoaded ? "show-thumb video-image" : "hide-thumb"}
                         alt="video thumbnail"
-                        src="https://res-console.cloudinary.com/ramlinga/thumbnails/transform/v1/image/upload//v1648539886/VmlkZW8tbGlicmFyeS9zZGRlZmF1bHRfeHVqMG5y/drilldown"
+                        src="https://res.cloudinary.com/ramlinga/image/upload/v1649319887/video-5-thumbnail_ygzfki.jpg"
                         onLoad={() => setIsImageLoaded(true)}
                     />
            <p className = "cat-description">Is there life on other planets?</p>
