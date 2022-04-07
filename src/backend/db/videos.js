@@ -20,7 +20,7 @@
   },
   {
     _id: "65eacb68-b89e-4299-898f-ed93619e11d8",
-    title: "The_Planets_Beyond_Neptune",
+    title: "The Planets Beyond Neptune",
     category:"Space",
     creationTime: "2022-03-02",
     creator: "Sentdex",
@@ -64,7 +64,7 @@
         "Jupiter is made of mostly hydrogen and helium gas. So, trying to land on it would be like trying to land on a cloud here on Earth. There's no outer crust to break your fall on Jupiter. Just an endless stretch of atmosphere.",
       creator: "Science Media",
       video:"https://res.cloudinary.com/ramlinga/video/upload/v1648537927/Video-library/What_Would_Happen_If_Humans_Tried_To_Land_On_Jupiter_g1mqjk.mp4",
-      thumbnail:"https://res-console.cloudinary.com/ramlinga/thumbnails/transform/v1/image/upload//v1648539886/VmlkZW8tbGlicmFyeS9zZGRlZmF1bHRfeHVqMG5y/drilldown"
+      thumbnail:"https://res.cloudinary.com/ramlinga/image/upload/v1649319887/video-5-thumbnail_ygzfki.jpg"
     },
     {
       _id: "3385b9cd-90e3-4914-8a93-f3f19177cd6f",
@@ -80,7 +80,7 @@
     },
     {
       _id: "cb556bdd-976c-4fd6-a0bf-0a265260f8cf",
-      title: "The Challenges of Landing Humans on Mars | How the Universe Works",
+      title: "The Challenges of Landing Humans on Mars",
       category:"Space",
       creationTime: "2022-03-07",
       views:0,
@@ -88,11 +88,11 @@
       description:
         "Learn the challenges NASA is facing in their quest to safely land humans on the Red Planet.",
         video:"https://res.cloudinary.com/ramlinga/video/upload/v1648537925/Video-library/Why_Mars_Is_The_Hardest_Planet_To_Land_On_kfsfdq.mp4",
-        thumbnail:"https://res-console.cloudinary.com/ramlinga/thumbnails/transform/v1/image/upload//v1648539685/VmlkZW8tbGlicmFyeS9zZGRlZmF1bHRfdGl4bjFn/drilldown"
+        thumbnail:"https://res.cloudinary.com/ramlinga/image/upload/v1649320010/video-7-thumbnail_ardf2v.jpg"
     },
     {
       _id: "c0465e16-80cb-4327-9a40-086bc53a5fd0",
-      title: "NASA Confirms Over 5000 Exoplanets Have Now Been Discovered!",
+      title: "NASA Confirms Over 5000 Exoplanets",
       category:"Space",
       creationTime: "2022-03-08",
       views:0,
@@ -104,7 +104,7 @@
     },
     {
         _id: "d52562f3-8281-49d4-89b5-1c4d54f7a5a5",
-        title: "The_Day_the_Dinosaurs_Died",
+        title: "The Day the Dinosaurs Died",
         category:"Earth",
         creationTime: "2022-03-09",
         views:0,
@@ -112,11 +112,11 @@
         description:
           "66 million years ago, maybe on a Tuesday afternoon, life was the same as it had been the day before or a thousand years before or pretty much a million years before. Things were good for our feathered dinosaur buddies. Until a tiny, tiny detail in the sky changed. ",
           video:"https://res.cloudinary.com/ramlinga/video/upload/v1648702351/Video-library/Planet%20Earth/The_Day_the_Dinosaurs_Died_Minute_by_Minute_fofhcz.mp4",
-          thumbnail:"https://res-console.cloudinary.com/ramlinga/thumbnails/transform/v1/image/upload/Y19zY2FsZSxoXzM2Myx3XzYzNw==/v1648703206/VmlkZW8tbGlicmFyeS9QbGFuZXQgRWFydGgvc2RkZWZhdWx0X3VvcWNhag==/template_primary"
+          thumbnail:"https://res.cloudinary.com/ramlinga/image/upload/v1649320105/video-9-thumbnail_k5hvgb.jpg"
     },
     {
           _id: "f7e6f55a-a147-4195-bcbb-c3ff5d8abcc6",
-          title: "One_Earth",
+          title: "One Earth",
           category:"Earth",
           creationTime: "2022-03-10",
           views:0,
@@ -128,7 +128,7 @@
     },
     {
       _id: "4a85d4b1-d902-4984-be55-801e5fdd10ed",
-      title: "Climate_Change",
+      title: "Climate Change",
       category:"Earth",
       creationTime: "2022-03-11",
       views:0,
@@ -140,7 +140,7 @@
       },
      {
       _id: "da283c11-c63e-419a-a058-3acadf340555",
-      title: "Evolution_from_ape_to_man",
+      title: "Evolution from ape to man",
       category:"Earth",
       creationTime: "2022-03-12",
       views:0,
